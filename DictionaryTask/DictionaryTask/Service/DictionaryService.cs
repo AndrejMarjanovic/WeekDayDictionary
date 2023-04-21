@@ -9,7 +9,7 @@ namespace DictionaryTask.Service
 {
     public class DictionaryService
     {
-        public void DisplayDictionary()
+        public async Task DisplayDictionary()
         {
             Console.WriteLine("Days of week are: ");
             Console.WriteLine("-----------------");
@@ -20,10 +20,10 @@ namespace DictionaryTask.Service
             Console.WriteLine();
         }
 
-        public void ReturnDayByKey()
+        public async Task ReturnDayByKey()
         {
      
-            var Day = WeekDayStorage.WeekDays.FirstOrDefault(x => x.Key == 1).Value;
+            var Day =  WeekDayStorage.WeekDays.FirstOrDefault(x => x.Key == 1).Value;
             if(Day != null)
             {
                 Console.WriteLine("Day with the key 1 is: {0}", Day);
@@ -32,34 +32,36 @@ namespace DictionaryTask.Service
             Console.WriteLine();
         }
 
-        public void ChangeToEnglish()
+        public async Task ChangeToEnglish()
         {
             for (int i = WeekDayStorage.WeekDays.First().Key; i <= WeekDayStorage.WeekDays.Count; i++)
             {
                 WeekDayStorage.WeekDays[i] = Enum.GetName(typeof(DayOfWeek), i % 7);
+                
             }
 
-            DisplayDictionary();
+            await DisplayDictionary();
+
         }
 
-        public void FindWeekday()
+        public async Task FindWeekday()
         {
 
             int DayKey = WeekDayStorage.WeekDays.FirstOrDefault(x => x.Value == "Tuesday").Key;
             if (DayKey != 0)
             {
-                WeekDayStorage.WeekDays.Remove(DayKey);
+               WeekDayStorage.WeekDays.Remove(DayKey);
             }
 
-
-            DisplayDictionary();
+            await DisplayDictionary();
         }
 
-        public void AddWeekday()
+        public async Task AddWeekday()
         {
             WeekDayStorage.WeekDays.Add(2, "Tuesday");
+            Thread.Sleep(0);
 
-            DisplayDictionary();
+            await DisplayDictionary();
         }
     }
 }

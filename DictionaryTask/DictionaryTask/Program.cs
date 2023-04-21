@@ -10,11 +10,11 @@ class Program
         Actions();
     }
 
-    static void Actions()
+    static async void Actions()
     {
-        service.ReturnDayByKey();
-        service.ChangeToEnglish();
-        service.FindWeekday();
-        service.AddWeekday();
+        await service.ReturnDayByKey();
+        await service.ChangeToEnglish();
+        await service.FindWeekday();
+        await service.AddWeekday();
     }
 }

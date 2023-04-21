@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DictionaryTask.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,13 +19,13 @@ namespace DictionaryTask.Storage
 
         public static void AddWeekDays()
         {
-            WeekDays.Add(1, "Ponedjeljak");
-            WeekDays.Add(2, "Utorak");
-            WeekDays.Add(3, "Srijeda");
-            WeekDays.Add(4, "Četvrtak");
-            WeekDays.Add(5, "Petak");
-            WeekDays.Add(6, "Subota");
-            WeekDays.Add(7, "Nedjelja");
+            WeekDays.Add(1, Weekdays.Monday);
+            WeekDays.Add(2, Weekdays.Tuesday);
+            WeekDays.Add(3, Weekdays.Wednesday);
+            WeekDays.Add(4, Weekdays.Thursday);
+            WeekDays.Add(5, Weekdays.Friday);
+            WeekDays.Add(6, Weekdays.Saturday);
+            WeekDays.Add(7, Weekdays.Sunday);
         }
     }
 }
