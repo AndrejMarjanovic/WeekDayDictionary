@@ -1,18 +1,20 @@
 ﻿using DictionaryTask.Service;
+using System.ComponentModel.Design;
 
 class Program
 {
+    private static DictionaryService service = new DictionaryService();
     static void Main()
     {
+        service.DisplayDictionary();
         Actions();
     }
 
     static void Actions()
     {
-        DictionaryService service = new DictionaryService();
-        service.DisplayDictionary();
-        service.FindOne();
+        service.ReturnDayByKey();
         service.ChangeToEnglish();
-        service.FindTuesday();
+        service.FindWeekday();
+        service.AddWeekday();
     }
 }
