@@ -6,12 +6,12 @@ class Program
     private static DictionaryService service = new DictionaryService();
     static void Main()
     {
-        service.DisplayDictionary();
         Actions();
     }
 
     static async void Actions()
     {
+        await service.DisplayDictionary();
         await service.ReturnDayByKey();
         await service.ChangeToEnglish();
         await service.FindWeekday();

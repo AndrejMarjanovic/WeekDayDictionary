@@ -17,6 +17,11 @@ namespace DictionaryTask.Storage
             AddWeekDays();
         }
 
+        public static Task<IDictionary<int,string>> GetDaysAsync()
+        {
+            return Task.FromResult(WeekDays);
+        }
+
         public static void AddWeekDays()
         {
             WeekDays.Add(1, Weekdays.Monday);

@@ -11,25 +11,28 @@ namespace DictionaryTask.Service
     {
         public async Task DisplayDictionary()
         {
+            var days = await WeekDayStorage.GetDaysAsync();
+
             Console.WriteLine("Days of week are: ");
             Console.WriteLine("-----------------");
-            foreach (var weekday in WeekDayStorage.WeekDays)
+            foreach (var weekday in days)
             {
                 Console.WriteLine("day: {0}, Name: {1}", weekday.Key, weekday.Value);
             }
             Console.WriteLine();
         }
 
-        public async Task ReturnDayByKey()
-        {
-     
-            var Day =  WeekDayStorage.WeekDays.FirstOrDefault(x => x.Key == 1).Value;
+        public Task ReturnDayByKey()
+        {     
+            string Day =  WeekDayStorage.WeekDays.FirstOrDefault(x => x.Key == 1).Value;
             if(Day != null)
             {
                 Console.WriteLine("Day with the key 1 is: {0}", Day);
             }
 
             Console.WriteLine();
+
+            return Task.FromResult(Day);
         }
 
         public async Task ChangeToEnglish()
